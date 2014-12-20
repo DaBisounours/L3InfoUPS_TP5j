@@ -25,7 +25,6 @@ public class ExprIntSum implements Expr {
             if (!Pattern.compile("[^a-zA-Z]").matcher(elem).find()) {
                 valeurInts.add((ValeurInt) (new ExprConstanteInt()).evaluate(elem, hm));
             } else {
-
                 if ((new ExprConstanteInt()).type(elem, null).compare(new TInt()))
                     valeurInts.add(new ValeurInt(Integer.valueOf(elem)));
             }

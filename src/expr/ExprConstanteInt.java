@@ -12,11 +12,11 @@ import java.util.regex.Pattern;
  */
 public class ExprConstanteInt implements Expr {
     @Override
-    public Valeur evaluate(String varName, Map<String, Valeur> env) throws ExprEvaluationException {
+    public Valeur evaluate(String expression, Map<String, Valeur> env) throws ExprEvaluationException {
         HashMap<String, Valeur> hm = (HashMap) env;
-        if (hm.get(varName)==null)
-            throw new ExprEvaluationException("Unbound value "+varName);
-        return hm.get(varName);
+        if (hm.get(expression)==null)
+            throw new ExprEvaluationException("Unbound value "+ expression);
+        return hm.get(expression);
     }
 
     @Override
@@ -29,9 +29,9 @@ public class ExprConstanteInt implements Expr {
         }
         else
         {
-            if (!Pattern.compile("[^a-zA-Z]").matcher(varName).find())
+            if (Pattern.compile("[a-zA-Z]+").matcher(varName).find())
                 throw new ExprEvaluationException("Unbound value " + varName);
-            else if (Pattern.compile("[^0-9]").matcher(varName).find())
+            else if (Pattern.compile("[^\\d]+").matcher(varName).find())
                 throw new ExprEvaluationException("Wrong type for value "+varName+"\nExpected : "+new TInt());
             else
                 return new TInt();

@@ -1,5 +1,6 @@
 import expr.ExprConstanteInt;
 import expr.ExprEvaluationException;
+import expr.ExprIntCompare;
 import expr.ExprIntSum;
 import type.TInt;
 import type.TList;
@@ -40,11 +41,23 @@ public class Main {
         valHashMap.put("a", new ValeurInt(1));
         valHashMap.put("b", new ValeurInt(2));
         valHashMap.put("c", new ValeurInt(2));
+        valHashMap.put("bla", new ValeurInt(3));
 
         try {
             System.out.println((new ExprIntSum()).evaluate("a+b+1+c+1+1", (Map) valHashMap));
         } catch (ExprEvaluationException e) {
             e.printStackTrace();
         }
+
+        try {
+            System.out.println((new ExprIntCompare()).evaluate("b=c", (Map) valHashMap));
+        } catch (ExprEvaluationException e) {
+            e.printStackTrace();
+        }
+
+
+
+        ValeurList valeurList = new ValeurList(l);
+        System.out.println(valeurList.getType());
     }
 }

@@ -1,5 +1,8 @@
 package valeur;
 
+import type.TInt;
+import type.Type;
+
 /**
  * Created by Evan Graïne on 12/19/14.
  */
@@ -19,4 +22,8 @@ public class ValeurInt implements Valeur {
         return String.valueOf(val);
     }
 
+    @Override
+    public Type getType() {
+        return new TInt();
+    }
 }

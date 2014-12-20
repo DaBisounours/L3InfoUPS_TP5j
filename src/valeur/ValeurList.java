@@ -1,5 +1,8 @@
 package valeur;
 
+import type.TList;
+import type.Type;
+
 import java.util.List;
 import java.util.ListIterator;
 
@@ -24,5 +27,10 @@ public class ValeurList<ValType> implements Valeur {
         stringBuilder.append("]");
         //Return String
         return stringBuilder.toString();
+    }
+
+    @Override
+    public Type getType() {
+        return new TList(null);
     }
 }

@@ -11,9 +11,9 @@ import java.util.Map;
  */
 public class ExprVar implements Expr {
     @Override
-    public Valeur evaluate(String varName, Map<String, Valeur> env) throws ExprEvaluationException {
+    public Valeur evaluate(String expression, Map<String, Valeur> env) throws ExprEvaluationException {
         HashMap<String, Valeur> hm = (HashMap) env;
-        return hm.get(varName);
+        return hm.get(expression);
     }
 
     @Override
